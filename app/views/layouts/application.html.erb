@@ -8,14 +8,16 @@
 </head>
 <body>
 
-<ul>
-  <% if flash[:errors] %>
-    <% flash[:errors].each do |msg|  %>
-      <li> <%= msg %> </li>
-    <% end %>
-  <% end %>
-</ul>
+<h1>TRELLO CLONE BABY 420 SWAG YOLO DANK</h1>
 
+<%= render partial: "shared/errors" %>
+
+<% if current_user %>
+  <%= button_to "Log Out", session_url, method: :delete %>
+<% else %>
+  <a href="<%= new_user_url %>">Register</a>
+  <a href="<%= new_session_url %>">Log In</a>
+<% end %>
 
 <%= yield %>
 

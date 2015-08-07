@@ -1,0 +1,26 @@
+<h1>User Log In</h1>
+
+<form action="<%= session_url %>" method="post">
+  <%= auth_token %>
+
+  <label for="users-username">
+
+    Username:
+    <input type="text"
+           name="users[username]"
+           id:"users-username"
+           value="<%= @user.username %>">
+    <br>
+
+  </label>
+
+  <label for="users-password">
+
+    Password:
+    <input type="password" name="users[password]" id:"users-password">
+    <br>
+
+  </label>
+
+  <input type="submit" value="Log In">
+</form>
