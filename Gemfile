@@ -36,6 +36,8 @@ gem 'backbone-on-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
