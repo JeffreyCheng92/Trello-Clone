@@ -1,14 +1,17 @@
-class BoardsController < ApplicationController
-  respond_to :json
+class Api::BoardsController < ApplicationController
+  # respond_to :json
 
   def index
-    @boards = Board.where(user_id: current_user.id)
-    render json: @boards
+    if current_user
+      @boards = current_user.boards
+      render "index"
+    else
+      render json: ["You must be logged in to do that!"], status: :unauthorized
+    end
   end
 
   def show
     @board = Board.find(params[:id])
-    render json: @board
   end
 
   def new

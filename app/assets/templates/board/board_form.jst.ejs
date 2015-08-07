@@ -1,0 +1,10 @@
+<h3><%= header %></h3>
+
+<form class="new-board">
+  <label for="">Title
+    <input type="text" name="board[title]" value="<%= board.escape("title") %>">
+  </label>
+
+  <br>
+  <input type="submit" value="<%= button_name %>">
+</form>
