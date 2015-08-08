@@ -12,6 +12,7 @@ TrelloClone.Views.boardForm = Backbone.CompositeView.extend({
   render: function() {
     var header = (this.model.isNew()) ? "New Board Playa" : "Edit Board?";
     var button_name = (this.model.isNew()) ? "Create Board" : "Confirm Changes";
+    debugger
     this.$el.html(this.template({
       header: header,
       button_name: button_name,
