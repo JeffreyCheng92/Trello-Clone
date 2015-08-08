@@ -4,7 +4,6 @@ class Api::BoardsController < ApplicationController
   def index
     if current_user
       @boards = current_user.boards
-      render "index"
     else
       render json: ["You must be logged in to do that!"], status: :unauthorized
     end

@@ -2,8 +2,7 @@ TrelloClone.Views.boardForm = Backbone.CompositeView.extend({
   template: JST["board/board_form"],
 
   initialize: function(options) {
-    var header = (this.model.isNew()) ? "New Board Playa" : "Edit Board?";
-    var button_name = (this.model.isNew()) ? "Create Board" : "Confirm Changes";
+
   },
 
   events: {
@@ -11,7 +10,13 @@ TrelloClone.Views.boardForm = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    this.$el.html(this.template({header: header, button_name: button_name}));
+    var header = (this.model.isNew()) ? "New Board Playa" : "Edit Board?";
+    var button_name = (this.model.isNew()) ? "Create Board" : "Confirm Changes";
+    this.$el.html(this.template({
+      header: header,
+      button_name: button_name,
+      board: this.model
+    }));
     return this;
   },
 
@@ -19,13 +24,13 @@ TrelloClone.Views.boardForm = Backbone.CompositeView.extend({
     event.preventDefault();
 
     var board = new TrelloClone.Models.Board();
-    var formData = $(event.currentTarget).serializeJSON;
+    var formData = $(event.currentTarget).serializeJSON();
 
-    board.save(formData, {
+    board.save(formData.board, {
       success: function() {
         this.collection.add(board);
         Backbone.history.navigate("#/boards/" + board.id);
-      }
-    }.bind(this));
+      }.bind(this)
+    });
   }
 });

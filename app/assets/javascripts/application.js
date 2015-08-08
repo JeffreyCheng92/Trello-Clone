@@ -16,6 +16,7 @@
 //= require backbone
 //= require trello_clone
 //= require_tree ./utils
+//= require jQuery.serializeJSON
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
